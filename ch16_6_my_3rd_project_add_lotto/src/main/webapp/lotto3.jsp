@@ -175,13 +175,24 @@
 								ArrayList<Integer> arr = lo.getArr();
 								ArrayList<String> imgBalls = lo.getArrBall();
 								
-								//pageContext.setAttribute("lotton2", lotto);
 								pageContext.setAttribute("lotto2", arr);
-								//for(Integer n : arr){
-								//	System.out.print(n+",");
-								//}
 								pageContext.setAttribute("imgs", imgBalls);
 
+						
+								//다시 lo = new Lotto()해서 그런지, ArrWinningNum 사라져 잇으므로.
+								ArrayList<Integer> arrWinningNum = (ArrayList<Integer>)session.getAttribute("lottoWinningNum");
+								for(int num : arrWinningNum){
+									System.out.print(num + "+");
+								}
+								lo.setArrWinnigNum(arrWinningNum); 
+								
+								
+								ArrayList<Integer> arrHit = lo.getArrHit();
+								ArrayList<String> imgBallsHit = lo.getArrBallHit();	
+								
+								pageContext.setAttribute("lotto2Hit", arrHit);
+								pageContext.setAttribute("imgsHit", imgBallsHit);										
+								
 							}
 						}else{
 							System.out.println("++++1");
@@ -219,6 +230,27 @@
 					        </div>
 					    </div>	
 					    
+
+						<br>
+						<br>
+						
+						<div class="d-flex justify-content-center my-2 my-sm-0" >
+	           				<button class="btn btn-outline-success disabled" >맞은 번호</button>
+						</div>	           				
+	          			
+					    <div class="container di_dbg3">
+					        <div class="row justify-content-sm-center">
+					        
+					        	<c:forEach var="i" items="${lotto2Hit}" begin="0" end="5" varStatus="status">
+								            <div class="di di_dbg">
+								                <img src=${imgsHit[status.index]} alt="" style="width:100%;">
+								                <div class="centered di_dbg2">${i}</div>
+								            </div>
+					        	</c:forEach>
+					        	    
+					        </div>
+					    </div>
+
 					    
 						
 						<br>
@@ -245,19 +277,17 @@
 						
  -->
  
-						<!-- <form class="d-flex justify-content-center my-2 my-lg-0 " action="#" method="post"> -->
 						<div class="d-flex justify-content-center my-2 my-sm-0" >
 	           				<button class="btn btn-outline-success disabled" >금주 로또 당첨 번호</button>
 						</div>	           				
-	          			<!-- </form> -->
 	          			
 					    <div class="container di_dbg3">
 					        <div class="row justify-content-sm-center">
 					        
-					        	<c:forEach var="i2" items="${lottoWinningNum}" begin="0" end="5" varStatus="status2">
+					        	<c:forEach var="i" items="${lottoWinningNum}" begin="0" end="5" varStatus="status">
 								            <div class="di di_dbg">
-								                <img src=${imgsWinnigNum[status2.index]} alt="" style="width:100%;">
-								                <div class="centered di_dbg2">${i2}</div>
+								                <img src=${imgsWinnigNum[status.index]} alt="" style="width:100%;">
+								                <div class="centered di_dbg2">${i}</div>
 								            </div>
 					        	</c:forEach>
 					        	    
