@@ -1,11 +1,29 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.Set"%>
+<%@page import="edu.kosmo.ex.lotto.Lotto"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+    
+
+    <!-- 
+    이것을 꼭 넣어야 한다. 
+    지시자 테그라이브러리를 쓰겠다.
+    c라는 프레픽스
+    문법은 여기에 있따.
+     -->
+<%-- 주의  주의  <% 는 왼쪽에 꼭 붙여서 쓰기 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+   
+    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-	   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -15,6 +33,36 @@
     	.i_wrap div, .j_wrap div, .k_wrap div{
     		border:1px solid gray;
     	}
+    	
+    	
+    	
+        .di_dbg{
+            border:1px solid gray;
+        }
+        .di_dbg2{
+            border:1px solid rgb(14, 247, 84);
+        }
+        .di_dbg3{
+            background-color: rgb(209, 229, 188);
+        }  
+        .di{
+            position: relative;
+            margin: 5px;
+        }
+        .centered {
+            position: absolute;
+            top: 0;
+            left: 0;
+            text-align: center;
+            width: 100%;
+            font-size: 30px;
+            font-weight: 800;
+            color: blueviolet;
+        }	
+    	
+    	
+    	
+    	
     </style>
     
 </head>
@@ -67,19 +115,35 @@
 				
 				
 				<form class="d-flex justify-content-center my-2 my-lg-0" action="#" method="post">
-           			<button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="genLotto" value="true">Search</button>
+           			<button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="genLotto" value="true">로또 번호 생성</button>
           		</form>
   		
 				<%
-				String genLotto = request.getParameter("genLotto");
-				System.out.println("++++" + genLotto);
-				if(genLotto != null){		
-					if(genLotto.equals("true")){
-						System.out.println("++++2");
-					}
-				}
-				%>
-	
+  						String genLotto = request.getParameter("genLotto");
+  								System.out.println("++++" + genLotto);
+  								if(genLotto != null){		
+  									if(genLotto.equals("true")){
+  										System.out.println("++++2");
+  										
+  										
+  										Lotto ro = new Lotto();
+
+  										Set<Integer> lotto = ro.getSet();
+  										
+  										ArrayList<Integer> arr = ro.getArr();
+  										ArrayList<String> imgBalls = ro.getArrBall();
+  										
+  										//pageContext.setAttribute("lotton2", lotto);
+  										pageContext.setAttribute("lotto2", arr);
+  										//for(Integer n : arr){
+  										//	System.out.print(n+",");
+  										//}
+  										
+  										pageContext.setAttribute("imgs", imgBalls);
+  									}
+  								}
+  						%>
+<!-- 	
 			    <div class="h_wrap">
 			    	<div class="d-flex text-center i_wrap">
 			    		<div class="col-4">i1</div>
@@ -105,8 +169,55 @@
 			    		<div class="col-4 text-center">k2</div>
 			    	</div>
 		    	</div>
-						
+						 -->
 				
+				
+<%-- 		<table class="table table-bordered table-hover table-striped ">
+
+            <thead class="thead-dark">
+                 <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </thead> 
+
+
+            <tbody>
+					<tr class="table-primary  text-center">
+						<c:forEach var="num" items="${lotto2}">
+							<td width="50">${num}</td>
+						</c:forEach>
+					</tr>
+			</tbody>
+
+        </table> 
+        --%>
+	
+		
+		
+		
+		
+		
+	
+			    <div class="container di_dbg3">
+			        <div class="row justify-content-sm-center">
+			        
+			        	<c:forEach var="num" items="${lotto2}">
+			        			<c:forEach var="name" items="${imgs}">
+						            <div class="di di_dbg">
+						                <img src=${name} alt="" style="width:100%;">
+						                <div class="centered di_dbg2" style="color:black;">${num}</div>
+						            </div>
+				            	</c:forEach>
+			        	</c:forEach>
+			        	    
+			        </div>
+			    </div>	
+					
+		
+		
 				
 				
 			</div>
@@ -120,7 +231,7 @@
     <hr>
       
 	<footer class="container">
-		<p>&copy; Company 2017-2020</p>
+		<p>&copy; Company 2020-2021</p>
 	</footer>
 		
 </body>

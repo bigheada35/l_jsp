@@ -149,22 +149,22 @@
 	String submit = "";
 	String result = "";
 	
-	String player1PersonPng = "34U.PNG";//"31.PNG";
-	String player2ComputerPng = "41U.PNG";//"41.PNG";
+	String player1PersonPng = "img-srp\\34U.PNG";//"31.PNG";
+	String player2ComputerPng = "img-srp\\41U.PNG";//"41.PNG";
 	String myPng = null;
 	String computerPng = null;
 	
-	final String PNG_SCISSOR = "21.PNG";
-	final String PNG_ROCK = "22.PNG";
-	final String PNG_PAPER = "23.PNG";
+	final String PNG_SCISSOR = "img-srp\\21.PNG";
+	final String PNG_ROCK = "img-srp\\22.PNG";
+	final String PNG_PAPER = "img-srp\\23.PNG";
 	
-	final String PNG_WIN = "31U.PNG";//"31.PNG";
-	final String PNG_LOSE = "32U.PNG";//"32.PNG";
-	final String PNG_TIE = "33U.PNG";//"33.PNG";
+	final String PNG_WIN = "img-srp\\31U.PNG";//"31.PNG";
+	final String PNG_LOSE = "img-srp\\32U.PNG";//"32.PNG";
+	final String PNG_TIE = "img-srp\\33U.PNG";//"33.PNG";
 	
-	final String PNG_COM_WIN = "41U.PNG";
-	final String PNG_COM_LOSE = "42U.PNG";
-	final String PNG_COM_TIE = "43U.PNG";
+	final String PNG_COM_WIN = "img-srp\\41U.PNG";
+	final String PNG_COM_LOSE = "img-srp\\42U.PNG";
+	final String PNG_COM_TIE = "img-srp\\43U.PNG";
 			
 	final String STR_START="버턴을 누르세요!";
 	final String STR_RETRY="한번더? 버턴을 누르세요!";
@@ -291,7 +291,7 @@
 	
 	  
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="lotto.jsp">당첨로또</a>
+        <a class="navbar-brand" href="lotto3.jsp">당첨로또</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -372,21 +372,21 @@
             <div class="col-2 k1_wrap dbg5">
                 <form action="#" method="post"> 
                 	<button type="submit" name="var_btn" value="가위">	
-                		<img class="img-fluid k1_img" src="21.PNG" alt="">	
+                		<img class="img-fluid k1_img" src="img-srp\\21.PNG" alt="">	
                 	</button>
                 </form>
             </div>
             <div class="col-2 k2_wrap dbg7">
                 <form action="#" method="post"> 
                 	<button type="submit" name="var_btn" value="바위">	
-                		<img class="img-fluid k2_img" src="22.PNG" alt="">	
+                		<img class="img-fluid k2_img" src="img-srp\\22.PNG" alt="">	
                 	</button>
                 </form>
             </div>
             <div class="col-2 k3_wrap dbg7">
              	<form action="#" method="post"> 
                 	<button type="submit" name="var_btn" value="보">	
-                		<img class="img-fluid k3_img" src="23.PNG" alt="">	
+                		<img class="img-fluid k3_img" src="img-srp\\23.PNG" alt="">	
                 	</button>
                 </form>
             </div>
