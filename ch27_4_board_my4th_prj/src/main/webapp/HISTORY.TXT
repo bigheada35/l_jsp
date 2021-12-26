@@ -1,0 +1,4 @@
+----------test only 2021-12-15----------BContentCommand수정 : content_view 에서  아래쪽에 목록 보기가 나오도록 ~!!!  
+
+<!-- lis안의 bid와 content_view안의 bid가 같으면  tr을 하나 만들어서 내용을 뿌려 주도록 시도 -->
+<c:if test="${dto.bid eq content_view.bid}">
