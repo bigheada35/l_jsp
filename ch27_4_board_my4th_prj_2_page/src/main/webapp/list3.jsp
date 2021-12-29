@@ -107,7 +107,16 @@
 									<th scope="row">${dto.bid}</th>
 									<td>${dto.bname}</td>
 									<td>
-										<c:forEach begin="1" end="${dto.bindent}"> [Re] </c:forEach>
+										<%-- <c:forEach begin="1" end="${dto.bindent}"> --%>
+										<c:forEach begin="1" var="idx" end="${dto.bindent}">
+											<c:if test="${idx eq dto.bindent}"> 
+												&#8627;
+											</c:if>
+											<c:if test="${idx ne dto.bindent}">
+												 &nbsp;&nbsp;&nbsp;&nbsp;
+											</c:if>
+										</c:forEach>
+										<%-- </c:forEach> --%>
 					 						<a href="content_view3.do?bid=${dto.bid}&pageNum=${pageMaker.cri.pageNum}&amount=${pageMaker.cri.amount}&searchItem=${pageMaker.cri.searchItem}&searchWord=${pageMaker.cri.searchWord}">${dto.btitle}</a>
 									</td>
 								
