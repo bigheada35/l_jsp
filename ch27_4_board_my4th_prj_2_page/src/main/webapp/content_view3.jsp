@@ -91,7 +91,7 @@
 							<td>이름</td>
 							<td>제목</td>
 							<td>날짜</td>
-							<td>히트</td>
+							<td>조회수</td>
 						</tr>
 					</thead>	
 					<tbody>
