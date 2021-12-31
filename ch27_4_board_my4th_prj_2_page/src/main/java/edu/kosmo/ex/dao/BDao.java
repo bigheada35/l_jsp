@@ -183,14 +183,25 @@ public class BDao {
 				
 				if(cri.getSearchItem().equals("searchName")) {
 					// NG
-					//query = "select * from (select rownum as rnum, a.* from (select * from mvc_board where bName like '%?%' order by bgroup desc, bstep asc) a where rownum <= ? * ?) where rnum > (?-1) * ?";
+					//query = "select * from (select rownum as rnum, a.* from (select * from mvc_board where bName like \'%?%\' order by bgroup desc, bstep asc) a where rownum <= ? * ?) where rnum > (?-1) * ?";
 					// OK
 					query = "select * from (select rownum as rnum, a.* from (select * from mvc_board where bName like \'%" + cri.getSearchWord() + "%\' order by bgroup desc, bstep asc) a where rownum <= ? * ?) where rnum > (?-1) * ?";
 					
-					System.out.println("---26--- query:" + query);
+					System.out.println("---26..--- query..:" + query);
 					
 					con = dataSource.getConnection();
 					preSta = con.prepareStatement(query);
+					
+					// for upper NG
+//					preSta.setString(1, cri.getSearchWord());
+//					preSta.setString(2, String.valueOf(cri.getPageNum()));
+//					preSta.setString(3, String.valueOf(cri.getAmount()));
+//					preSta.setString(4, String.valueOf(cri.getPageNum()));
+//					preSta.setString(5, String.valueOf(cri.getAmount()));
+					
+					System.out.println("---27..--- query..:" + query);
+					
+					// for lower OK
 					preSta.setString(1, String.valueOf(cri.getPageNum()));
 					preSta.setString(2, String.valueOf(cri.getAmount()));
 					preSta.setString(3, String.valueOf(cri.getPageNum()));
